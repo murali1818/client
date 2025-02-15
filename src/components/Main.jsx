@@ -6,6 +6,7 @@ import AllProducts from "./products/AllProducts";
 import Products from "./products/Products";
 import ProductDetails from "./products/ProductDetails";
 import ProductPage from "./products/ProductPage";
+import Dashboard from "./Main/Dashboard";
 
 const Main = () => {
   return (
@@ -24,6 +25,7 @@ const Main = () => {
             <Route path="/wholesalers" element={<Products />} />
             <Route path="/wholesalers/product/:id" element={<ProductDetails />} />
             <Route path="/products" element={<ProductPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </div>
