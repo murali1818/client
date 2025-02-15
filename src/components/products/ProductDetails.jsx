@@ -19,7 +19,7 @@ const ProductDetails = () => {
       try {
         // Fetch product details
         const token = Cookies.get('token');
-        const productResponse = await axios.get(`http://localhost:8000/getproduct/${id}`, {
+        const productResponse = await axios.get(`http://localhost:8000/api/v1/getproduct/${id}`, {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         console.log(productResponse.data.product);
@@ -28,7 +28,7 @@ const ProductDetails = () => {
 
         // Fetch competitors' prices
         if (analysisType === 'price-analysis'){
-        const competitorsResponse = await axios.get(`http://localhost:8000/getprice/${id}`);
+        const competitorsResponse = await axios.get(`http://localhost:8000/api/v1/getprice/${id}`);
         setCompetitorsPrices(competitorsResponse.data);
         }
 

@@ -16,7 +16,7 @@ const Products = () => {
     const fetchProducts = async () => {
         try {
             const token = Cookies.get('token');
-            const res = await axios.get('http://localhost:8000/myproduct', {
+            const res = await axios.get('http://localhost:8000/api/v1/myproduct', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             setProducts(res.data);

@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 const fetchProfile = async () => {
   try {
     const token = Cookies.get('token');
-    const response = await axios.get("http://localhost:8000/myprofile", {
+    const response = await axios.get("http://localhost:8000/api/v1/myprofile", {
       headers: {
         'Authorization': `Bearer ${token}`
       }

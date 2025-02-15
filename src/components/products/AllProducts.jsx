@@ -15,7 +15,7 @@ const AllProducts = () => {
     const fetchProducts = async () => {
         try {
             const token = Cookies.get('token');
-            const res = await axios.get('http://localhost:8000/myproduct', {
+            const res = await axios.get('http://localhost:8000/api/v1/myproduct', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             setProducts(res.data);
@@ -27,7 +27,7 @@ const AllProducts = () => {
     const deleteProduct = async (id) => {
         try {
             const token = Cookies.get('token');
-            await axios.delete(`http://localhost:8000/deleteproduct/${id}`, {
+            await axios.delete(`http://localhost:8000/api/v1/deleteproduct/${id}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             fetchProducts(); // Refresh the list after deletion
@@ -46,7 +46,7 @@ const AllProducts = () => {
         if (formType === 'add') {
             try {
                 const token = Cookies.get('token');
-                await axios.post('http://localhost:8000/addproduct', currentProduct, {
+                await axios.post('http://localhost:8000/api/v1/addproduct', currentProduct, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 console.log(currentProduct)
@@ -56,7 +56,7 @@ const AllProducts = () => {
         } else if (formType === 'edit') {
             try {
                 const token = Cookies.get('token');
-                await axios.put(`http://localhost:8000/updateproduct/${currentProduct._id}`, currentProduct, {
+                await axios.put(`http://localhost:8000/api/v1/updateproduct/${currentProduct._id}`, currentProduct, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
             } catch (err) {

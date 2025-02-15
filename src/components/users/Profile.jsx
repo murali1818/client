@@ -30,7 +30,7 @@ const Profile = () => {
   const handleEditProfile = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('http://localhost:8000/profile', { name: updatedName }, {
+      const response = await axios.put('http://localhost:8000/api/v1/profile', { name: updatedName }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       toast.success('Profile updated successfully');

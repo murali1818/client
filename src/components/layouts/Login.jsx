@@ -16,13 +16,13 @@ const Login = () => {
     e.preventDefault();
     try {
       if (isLogin) {
-        const response = await axios.post("http://localhost:8000/login", { email, password });
+        const response = await axios.post("http://localhost:8000/api/v1/login", { email, password });
         const { token } = response.data;
         toast.success(response.data.message);
         Cookies.set('token', token, { expires: 7 });
         navigate('/');
       } else {
-        const response = await axios.post("http://localhost:8000/register", { name, email, password });
+        const response = await axios.post("http://localhost:8000/api/v1/register", { name, email, password });
         const { token } = response.data;
         toast.success(response.data.message);
         Cookies.set('token', token, { expires: 7 });

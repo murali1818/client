@@ -8,7 +8,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:8001/users");
+        const response = await axios.get("http://localhost:8000/api/v1/users");
         setUsers(response.data.users);
         console.log(response.data.users)
       } catch (error) {
@@ -21,7 +21,7 @@ const Admin = () => {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      await axios.put('http://localhost:8001/edit-role', { userId, newRole });
+      await axios.put('http://localhost:8000/api/v1/edit-role', { userId, newRole });
       setUsers(prevUsers =>
         prevUsers.map(user =>
           user._id === userId ? { ...user, role: newRole } : user

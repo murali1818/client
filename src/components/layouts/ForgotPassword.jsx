@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/password/forgot', { email });
+      const response = await axios.post('http://localhost:8000/api/v1/password/forgot', { email });
       toast.success(response.data.message);
       setIsTokenSent(true);
     } catch (error) {
